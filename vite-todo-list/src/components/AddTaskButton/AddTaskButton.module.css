@@ -1,0 +1,22 @@
+.button {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-color: #5850DD;
+    position: absolute;
+    top: 493px;
+    left: 692px;
+    line-height: 62px;
+    box-shadow: 0 0 7px 3px #6C63FF;
+    transition: all .4s ease;
+}
+
+.button:hover {
+    background-color: #6C63FF;
+}
+
+.button svg {
+    stroke: #F7F7F7;
+    width: 24px;
+    height: 24px;
+}
