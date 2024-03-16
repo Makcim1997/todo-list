@@ -1,0 +1,58 @@
+.wrap {
+    padding-bottom: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #6C63FF;
+}
+
+.checked {
+    width: 26px;
+    height: 26px;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid #6C63FF;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.active {
+    background-color: #6C63FF;
+}
+
+.checked svg {
+    display: none;
+    fill: #F7F7F7;
+}
+
+.checked svg {
+    display: inline;
+}
+
+.task {
+    max-width: 420px;
+    width: 100%;
+}
+
+.controls {
+    padding: 0 8px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.controls svg {
+    fill: #CDCDCD;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.controls svg:nth-child(1):hover {
+    fill: #6C63FF;
+}
+
+.controls svg:nth-child(2):hover {
+    fill: #E50000;
+}
