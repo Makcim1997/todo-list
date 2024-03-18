@@ -4,6 +4,7 @@
     width: 100vw;
     min-height: 100vh;
     font-family: "Kanit", sans-serif;
+    position: relative;
 }
 
 .wrap {
@@ -18,6 +19,11 @@
 
 input::placeholder {
     font-family: 'Inter';
+}
+
+h1,
+h2 {
+    font-weight: 500;
 }
 
 button {
