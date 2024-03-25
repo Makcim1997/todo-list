@@ -1,10 +1,20 @@
-import { FC } from "react";
-import styles from './Button.module.css';
+import { FC, MouseEventHandler } from "react";
+import styles from "./Button.module.css";
 
-const Button: FC = (props) => {
+type TypeProsButton = {
+    className: string;
+    children: string;
+    onClick: MouseEventHandler<HTMLButtonElement>;
+}
+
+const Button: FC<TypeProsButton> = ({ onClick, className, children }) => {
+
+    const classes: string = styles.button + ` ${className}`;
+
     return (
-        <button className={}>{}</button>
+        <button onClick={onClick} className={classes}>{children}</button>
     )
 }
+
 
 export default Button;

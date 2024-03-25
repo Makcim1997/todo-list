@@ -1,0 +1,27 @@
+.window {
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.close {
+    display: none;
+}
+
+.open {
+    display: flex;
+}
+
+.content {
+    padding: 20px 30px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    background-color: #F7F7F7;
+    border-radius: 16px;
+}

@@ -1,10 +1,12 @@
 .wrap {
+    margin-bottom: 15px;
     padding-bottom: 15px;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid rgba(108, 99, 255, 50%);
+    cursor: pointer;
 }
 
 .checked {
@@ -14,28 +16,41 @@
     text-align: center;
     border: 1px solid #6C63FF;
     border-radius: 2px;
-    cursor: pointer;
 }
 
 .active {
     background-color: #6C63FF;
 }
 
-.checked svg {
+.notActive {
+    background-color: #F7F7F7;
+}
+
+.notActive svg {
     display: none;
+}
+
+.active svg {
+    display: inline;
     fill: #F7F7F7;
 }
 
-.checked svg {
-    display: inline;
-}
 
 .task {
     max-width: 420px;
     width: 100%;
     font-size: 20px;
     line-height: 20px;
-    color: #252525;
+}
+
+.notDone {
+    text-decoration: none;
+    color: rgb(37, 37, 37);
+}
+
+.done {
+    text-decoration: line-through;
+    color: rgba(37, 37, 37, 50%);
 }
 
 .controls {
@@ -49,7 +64,12 @@
     width: 18px;
     height: 18px;
     cursor: pointer;
+    opacity: 0;
     transition: all .3s ease;
+}
+
+.wrap:hover svg {
+    opacity: 1;
 }
 
 .controls svg:nth-child(1):hover {
@@ -58,4 +78,20 @@
 
 .controls svg:nth-child(2):hover {
     fill: #E50000;
+}
+
+
+.cansel {
+    background-color: #E50000;
+    color: #F7F7F7;
+}
+
+.cancel {
+    margin: 0 auto;
+    background-color: rgb(212, 19, 19);
+    color: #fff;
+}
+
+.cancel:hover {
+    background-color: rgb(4, 193, 36);
 }
