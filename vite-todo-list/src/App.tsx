@@ -2,7 +2,7 @@ import { FC, useState } from 'react';
 import Header from './components/Header/Header';
 import AddTaskButton from './components/AddTaskButton/AddTaskButton';
 import TaskListContainer from './components/TaskListContainer/TaskListContainer';
-import ModalWindowAddTask from './components/ModalWindowAddTask/ModalWindow';
+import ModalWindow from './components/ModalWindow/ModalWindow';
 import FormAddTask from './components/FormAddTask/FormAddTask';
 import { TypeTask } from './components/models/types';
 import './App.css';
@@ -14,7 +14,7 @@ const App: FC = () => {
   const [taskList, setTaskList] = useState<TypeTask[]>([]);
 
   const toggleModalWindowPosition = (): void => {
-    setModalWindowPosition(!modalWindowPosition)
+    setModalWindowPosition(!modalWindowPosition);
   };
 
   const addTask = (task: TypeTask): void => {
@@ -29,6 +29,11 @@ const App: FC = () => {
     setTaskList(newTaskList);
   }
 
+  const updateTask = (taskEdit: TypeTask) => {
+    const taskListEdit = taskList.map((task) => task.id === taskEdit.id ? taskEdit : task);
+    setTaskList(taskListEdit);
+  }
+
   const setTasksIsDone = (id: string, isDoneTask: boolean): void => {
     const newListTasks = taskList.map((task) => {
       if (id === task.id) {
@@ -39,21 +44,22 @@ const App: FC = () => {
 
     setTaskList(newListTasks);
   }
-
+  
+  console.log(taskList);
   
   
   return (
     <div className='App'>
       <div className='wrap'>
         <Header />
-        <TaskListContainer taskList={taskList} deleteTask={deleteTask} setTasksIsDone={setTasksIsDone} />
+        <TaskListContainer taskList={taskList} deleteTask={deleteTask} setTasksIsDone={setTasksIsDone} updateTask={updateTask}/>
         <AddTaskButton toggleModalWindowPosition={toggleModalWindowPosition} />
       </div>
-      <ModalWindowAddTask
+      <ModalWindow
         modalWindowPosition={modalWindowPosition}
         toggleModalWindowPosition={toggleModalWindowPosition}>
         <FormAddTask toggleModalWindowPosition={toggleModalWindowPosition} addTask={addTask}/>
-      </ModalWindowAddTask>
+      </ModalWindow>
     </div>
   )
 }

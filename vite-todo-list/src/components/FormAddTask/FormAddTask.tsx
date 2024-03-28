@@ -1,5 +1,5 @@
 import { FC, ChangeEvent, MouseEvent, useState } from "react";
-import styles from './FormAddTask.module.css';
+import styles from '../../styles/FormTask.module.css';
 import { TypeTask } from "../models/types";
 import Button from "../UI/Button/Button";
 
@@ -8,7 +8,11 @@ type TypeFormPropsAddTask = {
     addTask: (task: TypeTask) => void;
 }
 
-const initState: string = '';
+const initState: TypeTask = {
+    text: '',
+    id: '',
+    done: false,
+};
 
 const FormAddTask: FC<TypeFormPropsAddTask> = ({ toggleModalWindowPosition, addTask }) => {
 
@@ -18,19 +22,19 @@ const FormAddTask: FC<TypeFormPropsAddTask> = ({ toggleModalWindowPosition, addT
         
         const text: string = e.target.value;
 
-        setNewTask(text);
+        setNewTask({
+            text,
+            id: String(Math.random()),
+            done: false,
+        });
     }
 
     const handleSubmit = (event: MouseEvent<HTMLButtonElement>): void => {
         event.preventDefault();
         toggleModalWindowPosition();
         
-        if (newTask) {
-            addTask({
-                text: newTask,
-                id: String(Math.random()),
-                done: false,
-            })
+        if (newTask.text) {
+            addTask(newTask);
         }
 
         setNewTask(initState);
@@ -48,7 +52,7 @@ const FormAddTask: FC<TypeFormPropsAddTask> = ({ toggleModalWindowPosition, addT
             <h2>NEW NOTE</h2>
             <form className={styles.form}>
                 <div className={styles.input}>
-                    <input type="text" onChange={handleChange} value={newTask} name="title" placeholder="Input your note..." />
+                    <input type="text" onChange={handleChange} value={newTask.text} name="title" placeholder="Input your note..." />
                 </div>
                 <div className={styles.controls}>
                     <Button onClick={canselTask} className={styles.button}>CANCEL</Button>

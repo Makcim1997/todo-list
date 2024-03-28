@@ -3,8 +3,3 @@ export type TypeTask = {
     id: string,
     done: boolean,
 }
-
-export type TypePropsGetModalPosition = {
-    toggleModalWindowPosition: () => void;
-    modalWindowPosition?: boolean;
-}

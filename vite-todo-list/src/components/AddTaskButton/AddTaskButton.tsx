@@ -1,11 +1,13 @@
 import { FC } from "react";
 import styles from './AddTaskButton.module.css';
 import { IoAddOutline } from "react-icons/io5";
-import { TypePropsGetModalPosition } from "../models/types";
+
+type TypePropsAddTaskBtn = {
+    toggleModalWindowPosition: () => void;
+}
 
 
-
-const AddTaskButton: FC<TypePropsGetModalPosition> = ({ toggleModalWindowPosition }) => {
+const AddTaskButton: FC<TypePropsAddTaskBtn> = ({ toggleModalWindowPosition }) => {
 
     return (
         <button onClick={toggleModalWindowPosition} className={styles.button}>

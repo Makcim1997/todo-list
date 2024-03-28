@@ -4,13 +4,14 @@ import Task from "./Task/Task";
 import { TypeTask } from "../models/types";
 
 
-type TypeTaskList = {
+interface ITaskList {
     taskList: TypeTask[];
     deleteTask: (id: string) => void;
     setTasksIsDone: (id: string, isDoneTask: boolean) => void;
+    updateTask: (task: TypeTask) => void;
 }
 
-const TaskListContainer: FC<TypeTaskList> = ({ taskList, deleteTask, setTasksIsDone }) => {
+const TaskListContainer: FC<ITaskList> = ({ taskList, deleteTask, setTasksIsDone, updateTask }) => {
     
     return (
         <div className={styles.container}>
@@ -18,7 +19,8 @@ const TaskListContainer: FC<TypeTaskList> = ({ taskList, deleteTask, setTasksIsD
             key={task.id}
             task={task}
             deleteTask={deleteTask}
-            setTasksIsDone={setTasksIsDone} />)}
+            setTasksIsDone={setTasksIsDone}
+            updateTask={updateTask} />)}
         </div>
     )
 }
